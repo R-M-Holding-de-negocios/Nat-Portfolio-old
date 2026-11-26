@@ -1,7 +1,11 @@
 ---
+import { getImage } from 'astro:assets';
+import portrait from '../assets/perfil.jpeg';
 import '../styles/global.css';
-import '../styles/editorial.css';
 const title = 'Natália Menezes Reis | Psicóloga Clínica Online';
 const description = 'Psicoterapia individual online para adultos, com atenção especial às mulheres e pessoas LGBTQIAPN+. Conheça o trabalho de Natália Menezes Reis, CRP 03/35648.';
+// Social preview (WhatsApp, Instagram, Facebook). Absolute URL only when the real domain is set in astro.config `site`.
+const og = await getImage({ src: portrait, width: 1200, height: 630, fit: 'cover', position: 'top', format: 'jpg', quality: 82 });
+const ogUrl = Astro.site ? new URL(og.src, Astro.site).href : og.src;
 ---
-<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>{title}</title><link rel="icon" type="image/svg+xml" href="/favicon.svg"/><meta name="description" content={description}/><meta name="robots" content="noindex, nofollow"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:type" content="website"/><meta name="theme-color" content="#F3EDE3"/></head><body><a class="skip" href="#conteudo">Pular para o conteúdo</a><slot/></body></html>
+<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>{title}</title><link rel="icon" type="image/svg+xml" href="/favicon.svg"/><meta name="description" content={description}/><meta name="robots" content="noindex, nofollow"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:type" content="website"/><meta property="og:locale" content="pt_BR"/><meta property="og:image" content={ogUrl}/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="Natália Menezes Reis, psicóloga clínica"/><meta name="twitter:card" content="summary_large_image"/><meta name="theme-color" content="#F3EDE3"/></head><body><a class="skip" href="#conteudo">Pular para o conteúdo</a><slot/></body></html>

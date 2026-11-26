@@ -1,0 +1,5 @@
+---
+interface Props { cards: readonly string[] }
+const { cards } = Astro.props;
+---
+<div class="themes card-grid">{cards.map((title, index) => <article class="theme"><span class="theme-number" aria-hidden="true">0{index + 1}</span><h3>{title}</h3><span class="theme-mark" aria-hidden="true">✧</span></article>)}</div>

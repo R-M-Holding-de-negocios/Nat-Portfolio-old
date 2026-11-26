@@ -73,8 +73,8 @@ Cabeçalho compacto com nome, CRP, links “Sobre mim”, “Psicoterapia”, �
 | 4 | `psicoterapia` | Compreensão do processo em bloco editorial, sem mosaico de cartões |
 | 5 | `como-funciona` | Quatro etapas numeradas, seguindo o PDF |
 | 6 | `duvidas` | Cinco perguntas em acordeão acessível |
-| 7 | `contato` | Convite final, CTA, WhatsApp, Instagram e e-mail |
-| 8 | rodapé | Nome completo, profissão, CRP, modalidade e copyright |
+| 7 | `contato` | Convite final, CTA, WhatsApp e e-mail (Instagram no rodapé, para manter o foco no WhatsApp) |
+| 8 | rodapé | Nome completo, profissão, CRP, modalidade, Instagram e copyright |
 
 No celular, manter a ordem de leitura texto → CTA → retrato. O hero não precisa caber inteiro em uma tela; não reduzir fontes para isso. Não usar carrossel, vídeo automático ou rolagem horizontal. Não adicionar botão flutuante por padrão: os CTAs das seções já resolvem o contato.
 

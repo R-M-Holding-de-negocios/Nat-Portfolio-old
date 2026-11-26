@@ -58,7 +58,8 @@ function initialize() {
       observer?.unobserve(element);
     });
   }, {threshold: 0, rootMargin: '0px 0px -8% 0px'});
-  document.querySelectorAll<HTMLElement>('main section').forEach(section => {
+  // The hero stays visible from the first paint so the portrait and headline are not delayed.
+  document.querySelectorAll<HTMLElement>('main section:not(#inicio)').forEach(section => {
     section.querySelectorAll<HTMLElement>(targets).forEach(element => {
       if (element.parentElement?.closest(boxes)) return;
       // Establish opacity zero before entry: never paint visible text then reset it.

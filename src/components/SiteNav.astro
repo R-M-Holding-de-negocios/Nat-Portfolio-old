@@ -1,0 +1,5 @@
+---
+interface Props { items: { value: string; label: string }[] }
+const { items } = Astro.props;
+---
+<div class="segment" role="group" aria-label="Seções do site"><span class="segment__thumb" aria-hidden="true"></span>{items.map(item => <a class="segment__item" href={'#' + item.value}>{item.label}</a>)}</div>

@@ -1,5 +1,14 @@
 ---
 import { professional as p } from '../data/professional';
-import { InteractiveHoverLink } from './ui/interactive-hover-button';
+interface Props { note?: boolean; class?: string }
+const { note = false, class: className = '' } = Astro.props;
+const arrow = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
 ---
-<InteractiveHoverLink href={p.whatsapp} text="Vamos conversar?"/>
+{note ? (
+  <div class:list={['cta-block', className]}>
+    <a class="button interactive-hover" href={p.whatsapp}><span class="hover-label">Vamos conversar?</span><span class="hover-active" aria-hidden="true">Vamos conversar?<Fragment set:html={arrow}/></span><span class="hover-fill" aria-hidden="true"></span></a>
+    <p class="cta-note">Abre uma conversa no WhatsApp para você tirar dúvidas antes de agendar.</p>
+  </div>
+) : (
+  <a class:list={['button interactive-hover', className]} href={p.whatsapp}><span class="hover-label">Vamos conversar?</span><span class="hover-active" aria-hidden="true">Vamos conversar?<Fragment set:html={arrow}/></span><span class="hover-fill" aria-hidden="true"></span></a>
+)}
