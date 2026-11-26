@@ -30,7 +30,7 @@ Requer Node.js 22.12+.
 ## SEO e compartilhamento
 
 - Favicon NM em `public/favicon.svg`.
-- Imagem Open Graph 1200×630 gerada do retrato no build. Ela só vira URL absoluta (exigida por WhatsApp/Facebook) quando `site` for definido em `astro.config.mjs` com o domínio real.
+- Imagem Open Graph 1200×630 gerada do retrato no build. WhatsApp/Facebook exigem URL absoluta: o `astro.config.mjs` usa a variável `SITE_URL` (ex.: `https://dominio.com.br`) ou, na falta dela, a URL de produção fornecida por Vercel, Netlify ou Cloudflare Pages. Sem nenhuma delas, a prévia sai sem imagem. Depois de publicar, forçar a releitura no [Sharing Debugger](https://developers.facebook.com/tools/debug/) (o WhatsApp guarda a prévia antiga em cache).
 - Preview com `noindex, nofollow`. Ao publicar: definir `site`, revisar robots, canonical e sitemap.
 
 ## Pendências
